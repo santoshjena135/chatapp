@@ -1,0 +1,56 @@
+.container{
+    position: relative;
+    /* background-color: rgb(236,229,221); */
+    background: url('./chatbg.jpg');
+    margin:auto;
+    height: 80vh;
+    width: 50vw;
+}
+.message{
+    margin: 5px;
+    padding: 8px;
+    width: fit-content;
+    max-width: 300px;
+    clear:both;
+    border-radius: 10px;
+    box-shadow:2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.left{
+    float: left;
+    background-color:rgb(247, 247, 247);
+}
+.right{
+    background-color:rgb(220,248,198);
+    float: right;
+}
+.inputfield{
+    margin: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.inputsendmsg{
+    width:80%;
+}
+.btnsendmsg{
+    width:10%;
+}
+.timestamp{
+    clear: both;
+    bottom:0;
+    float: right;
+    font-size: small;
+    color: rgb(39, 39, 39);
+}
+.sendername{
+    font-weight:bold;
+    margin-bottom: 5px;
+    color: rgb(56, 56, 56);
+}
+.userjoined{
+    background-color: rgba(0, 0, 0, 0.603);
+    color: aliceblue;
+    font-weight: lighter;
+    text-align: center;
+    clear: both;
+}
