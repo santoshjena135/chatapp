@@ -2,10 +2,13 @@ const socket = io('http://localhost:8000');
 const name = prompt("What shall we call you?");
 socket.emit('new-user-joined',name);
 socket.on('user-joined',data=>{
-    appendUserStatus(data)
+    appendUserStatus(data,true) // 2nd param is true if user joins, false if user leaves.
 })
 socket.on('recieve',data=>{
     appendMessage(data.name, data.message, 'left');
+})
+socket.on('user-left',data=>{
+    appendUserStatus(data,false)
 })
 
 function appendMessage(name, message, position) {
@@ -21,11 +24,16 @@ function appendMessage(name, message, position) {
     `;
     container.append(msgcontainer);
 }
-function appendUserStatus(name){
+function appendUserStatus(name,isActive){
     var container = document.getElementById("container");
     var msgcontainer = document.createElement("div");
     msgcontainer.className = "userjoined"
-    msgcontainer.innerHTML = `${name} joined the chat!`;
+    if(isActive){
+        msgcontainer.innerHTML = `${name} joined the chat!`;
+    }
+    else{
+        msgcontainer.innerHTML = `${name} left the chat!`;
+    }
     container.append(msgcontainer);
 }
 
